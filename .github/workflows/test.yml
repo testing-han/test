@@ -12,3 +12,7 @@ jobs:
     steps:
       - name: print name
         run: echo "$NAME"
+
+      - name: print env
+        run: |
+          printenv
