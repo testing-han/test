@@ -4,7 +4,7 @@ on:
   push:
 
 env:
- NAME: ${{ secrets.NAME }}
+ NAME: "${{ secrets.NAME }}"
  COMs: ${{ vars.COMPANY }}
  
 jobs:
