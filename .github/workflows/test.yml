@@ -19,4 +19,4 @@ jobs:
           printenv
 
       - name: test 2
-        run: echo "$COMs"
+        run: echo "${{ github.event.repository.name }}"
