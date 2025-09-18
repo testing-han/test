@@ -20,3 +20,6 @@ jobs:
 
       - name: test 2
         run: echo "${{ github.event.repository.name }}"
+
+      - name: test 3
+        run : echo "The commit is ${GITHUB_SHA}"
