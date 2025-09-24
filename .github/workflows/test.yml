@@ -2,6 +2,7 @@ name: test secrets
 
 on:
   push:
+  workflow_dispatch:
 
 env:
  NAME: "${{ secrets.NAME }}"
