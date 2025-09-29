@@ -23,4 +23,4 @@ jobs:
         run: echo "${{ github.event.repository.name }}"
 
       - name: test 3
-        run : echo "The commit is ${GITHUB_SHA}"
+        run : echo "The commit is $GITHUB_SHA.zip"
