@@ -30,3 +30,19 @@ jobs:
           
       - name: test 3
         run : echo "The commit is $GITHUB_SHA.zip"
+
+  download:
+    needs: test-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download
+        uses: actions/download-artifact@4.1.0
+        with:
+          name: Upload
+          path: ./Downloaded
+
+      - name: List Downloaded Files
+        run: ls -R ./downloaded
+
+      - name: Print Artifact Content
+        run: cat ./downloaded/output.txt
