@@ -45,7 +45,7 @@ jobs:
           path: ./Downloaded
 
       - name: List Downloaded Files
-        run: ls -R ./downloaded
+        run: ls -R ./Downloaded
 
       - name: Print Artifact Content
-        run: cat ./downloaded/output.txt
+        run: cat ./Downloaded/output.txt
