@@ -11,6 +11,8 @@ env:
 jobs:
   test-job:
     runs-on: ubuntu-latest
+    container:
+      image: composer
     steps:
       - name: print name
         run: echo "$NAME"
