@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Download artifact from workflow A
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v6
         with:
           name: build-artifact
 

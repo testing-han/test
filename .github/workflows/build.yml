@@ -16,7 +16,7 @@ jobs:
         run: echo "Hello from A" > output.txt
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v5
         with:
           name: build-artifact
           path: output.txt
