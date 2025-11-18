@@ -1,0 +1,20 @@
+name: release
+
+on:
+  workflow_run:
+    workflows: ["build"]
+    types:
+      - completed
+
+jobs:
+  use-artifact:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact from workflow A
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+
+      - name: Read artifact content
+        run: cat output.txt
