@@ -1,7 +1,7 @@
 name: test secrets
 
 on:
-  # push:
+  push:
   workflow_dispatch:
 
 env:
@@ -38,6 +38,12 @@ jobs:
 
       - name: Test 5
         run: echo "$GITHUB_REF_NAME"
+
+      - id: render-task-definition
+        uses: aws-actions/amazon-ecs-render-task-definition@v1.2.0
+        with:
+          container-name: web
+          image: bitbucketpipelines/aws-ecs-deploy:1.15.0
 
   download:
     needs: test-job
