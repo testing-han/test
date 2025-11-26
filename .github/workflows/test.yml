@@ -1,7 +1,7 @@
 name: test secrets
 
 on:
-  push:
+  # push:
   workflow_dispatch:
 
 env:
@@ -20,9 +20,12 @@ jobs:
       - name: print env
         run: |
           printenv
+          export ROLE="DevOps"
 
       - name: test 2
-        run: echo "${{ github.event.repository.name }}" >> output.txt
+        run: |
+          echo "${{ github.event.repository.name }}" >> output.txt
+          echo "Using Role: $ROLE"
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.1.0
