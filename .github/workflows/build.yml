@@ -1,6 +1,7 @@
 name: build
 
 on:
+  workflow_dispatch:
   # push:
   #   branches:
   #     - main 
@@ -20,3 +21,4 @@ jobs:
         with:
           name: build-artifact
           path: output.txt
+
