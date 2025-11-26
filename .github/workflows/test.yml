@@ -20,7 +20,7 @@ jobs:
       - name: print env
         run: |
           printenv
-          export ROLE="DevOps"
+          export ROLE="DevOps" >> $GITHUB_ENV
 
       - name: test 2
         run: |
