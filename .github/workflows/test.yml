@@ -20,7 +20,7 @@ jobs:
       - name: print env
         run: |
           printenv
-          export ROLE="DevOps" >> $GITHUB_ENV
+          export "ROLE=DevOps" >> $GITHUB_ENV
 
       - name: test 2
         run: |
@@ -42,11 +42,11 @@ jobs:
       - name: Test 5
         run: echo "$GITHUB_REF_NAME"
 
-      - id: render-task-definition
-        uses: aws-actions/amazon-ecs-render-task-definition@v1.2.0
-        with:
-          container-name: web
-          image: bitbucketpipelines/aws-ecs-deploy:1.15.0
+      # - id: render-task-definition
+      #   uses: aws-actions/amazon-ecs-render-task-definition@v1.2.0
+      #   with:
+      #     container-name: web
+      #     image: bitbucketpipelines/aws-ecs-deploy:1.15.0
 
   download:
     needs: test-job
