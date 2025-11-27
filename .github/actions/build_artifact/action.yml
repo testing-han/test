@@ -4,6 +4,7 @@ runs:
   using: 'composite'
   steps:
     - name: Build something
+      shell: bash
       run: echo "Hello from A" > output.txt
 
     - name: Upload artifact
@@ -11,4 +12,3 @@ runs:
       with:
         name: build-artifact
         path: output.txt
-
