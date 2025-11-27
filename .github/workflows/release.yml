@@ -1,16 +1,20 @@
 name: release
 
 on:
-  workflow_run:
-    workflows: ["build"]
-    types:
-      - completed
+  workflow_dispatch:
+
 
 jobs:
   use-artifact:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Artifact
+        uses: ./.github/actions/build_artifact
+        
       - name: Download artifact from workflow A
         uses: actions/download-artifact@v6
         with:

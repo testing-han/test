@@ -1,0 +1,14 @@
+name: build
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Build something
+      run: echo "Hello from A" > output.txt
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v5
+      with:
+        name: build-artifact
+        path: output.txt
+
