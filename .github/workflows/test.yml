@@ -20,12 +20,14 @@ jobs:
       - name: print env
         run: |
           printenv
+          echo "BRANCH=${{ github.ref_name }}" >> $GITHUB_ENV
           echo "ROLE=DevOps" >> $GITHUB_ENV
 
       - name: test 2
         run: |
           echo "${{ github.event.repository.name }}" >> output.txt
           echo "Using Role: $ROLE"
+          echo "Using Branch: $BRANCH"
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.1.0
