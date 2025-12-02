@@ -18,13 +18,24 @@ jobs:
         run: echo "$NAME"
 
       - name: print env
-        run: |
-          if [ "${{ github.ref_name }}" == "main"]; then
-            export ROLE="DevOPS"
+        run: |-
+          if [ "${{ github.ref_name }}" == "main" ]; then
+            export AWS_ECS_SERVICE_NAME="worker-cdb-export-v3-int"
+            export AWS_ECS_CLUSTER_NAME="DigitalEngine-int"
+          elif [ "${{ github.ref_name }}" == "v3-staging" ]; then
+            export AWS_ECS_SERVICE_NAME="worker-cdb-export-v3-staging"
+            export AWS_ECS_CLUSTER_NAME="DigitalEngine-staging"
+          elif [ "${{ github.ref_name }}" == "v3-prod" ]; then
+            export AWS_ECS_SERVICE_NAME="worker-cdb-export-v3-prod"
+            export AWS_ECS_CLUSTER_NAME="DigitalEngine-prod"
           else
-            echo "Error"
+            echo "Error: Unsupported branch for ECS deployment"
+            exit 1
           fi
+          echo "Using ECS Cluster: $AWS_ECS_CLUSTER_NAME"
+          echo "Using ECS Service: $AWS_ECS_SERVICE_NAME"
+          
       - name: test 2
         run: |
           echo "${{ github.event.repository.name }}" >> output.txt
-          echo "Using Branch: ${{ env.ROLE }}"
+          echo "Using Service: $AWS_ECS_SERVICE_NAME"
