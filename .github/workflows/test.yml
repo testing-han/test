@@ -27,5 +27,5 @@ jobs:
       - name: test 2
         run: |
           echo "${{ github.event.repository.name }}" >> output.txt
-          echo "Using Role: $ROLE"
-          echo "Using Branch: $BRANCH"
+          echo "Using Role: ${{ env.BRANCH }}"
+          echo "Using Branch: ${{ env.ROLE }}"
