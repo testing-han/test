@@ -23,6 +23,7 @@ jobs:
             export ROLE="DevOPS"
           else
             echo "Error"
+          fi
       - name: test 2
         run: |
           echo "${{ github.event.repository.name }}" >> output.txt
