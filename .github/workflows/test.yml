@@ -19,13 +19,11 @@ jobs:
 
       - name: print env
         run: |
-          echo "BRANCH=${{ github.ref_name }}" >> $GITHUB_ENV
-          echo "ROLE=DevOps" >> $GITHUB_ENV
-          echo ${{ env.BRANCH }}
-          echo ${{ env.ROLE }}
-
+          if [ "${{ github.ref_name }}" == "main"]; then
+            export ROLE="DevOPS"
+          else
+            echo "Error"
       - name: test 2
         run: |
           echo "${{ github.event.repository.name }}" >> output.txt
-          echo "Using Role: ${{ env.BRANCH }}"
           echo "Using Branch: ${{ env.ROLE }}"
