@@ -19,49 +19,13 @@ jobs:
 
       - name: print env
         run: |
-          printenv
           echo "BRANCH=${{ github.ref_name }}" >> $GITHUB_ENV
           echo "ROLE=DevOps" >> $GITHUB_ENV
+          echo $BRANCH
+          echo $ROLE
 
       - name: test 2
         run: |
           echo "${{ github.event.repository.name }}" >> output.txt
           echo "Using Role: $ROLE"
           echo "Using Branch: $BRANCH"
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4.1.0
-        with:
-          name: Upload
-          path: output.txt
-          
-      - name: test 3
-        run : echo "The commit is $GITHUB_SHA.zip"
-
-      - name: Test 4
-        run : echo "$GITHUB_REF"
-
-      - name: Test 5
-        run: echo "$GITHUB_REF_NAME"
-
-      # - id: render-task-definition
-      #   uses: aws-actions/amazon-ecs-render-task-definition@v1.2.0
-      #   with:
-      #     container-name: web
-      #     image: bitbucketpipelines/aws-ecs-deploy:1.15.0
-
-  download:
-    needs: test-job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download
-        uses: actions/download-artifact@v4.1.0
-        with:
-          name: Upload
-          path: ./Downloaded
-
-      - name: List Downloaded Files
-        run: ls -R ./Downloaded
-
-      - name: Print Artifact Content
-        run: cat ./Downloaded/output.txt
