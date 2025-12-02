@@ -21,8 +21,8 @@ jobs:
         run: |
           echo "BRANCH=${{ github.ref_name }}" >> $GITHUB_ENV
           echo "ROLE=DevOps" >> $GITHUB_ENV
-          echo $BRANCH
-          echo $ROLE
+          echo ${{ env.BRANCH }}
+          echo ${{ env.ROLE }}
 
       - name: test 2
         run: |
