@@ -40,7 +40,7 @@ jobs:
 
       - name: out
         run: |-
-          echo "$AWS_SERVICE_NAME" >> service.txt
+          echo "$AWS_SERVICE_NAME" > service.txt
       - name: test 2
         run: |
           echo "${{ github.event.repository.name }}" >> output.txt
