@@ -11,14 +11,14 @@ env:
 jobs:
   test-job:
     runs-on: ubuntu-latest
-    environment: dev
+    # environment: dev
     container:
       image: composer
     steps:
       - name: print name
         run: echo "$NAME"
-      - name: Print dev Environment variable
-        run: echo "${{ vars.NAME }}"
+      # - name: Print dev Environment variable
+      #   run: echo "${{ vars.NAME }}"
       # - name: print env
       #   run: |-
       #     if [ "${{ github.ref_name }}" == "main" ]; then
