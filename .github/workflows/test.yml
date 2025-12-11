@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
 
 env:
- NAME: "${{ secrets.NAME }}"
- COMs: ${{ vars.COMPANY }}
+  NAME: ${{ secrets.NAME }}
+  COMs: ${{ vars.COMPANY }}
  
 jobs:
   test-job:
@@ -22,7 +22,6 @@ jobs:
         
       - name: Print dev Environment variable
         run: echo "${{ vars.NAME }}"
-
       # - name: print env
       #   run: |-
       #     if [ "${{ github.ref_name }}" == "main" ]; then
