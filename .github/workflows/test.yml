@@ -19,7 +19,7 @@ jobs:
         env:
           NAME: vardhan
         run: echo "$NAME"
-
+        
       - name: Print dev Environment variable
         run: echo "${{ vars.NAME }}"
 
