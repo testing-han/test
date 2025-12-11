@@ -11,14 +11,16 @@ env:
 jobs:
   test-job:
     runs-on: ubuntu-latest
-    # environment: dev
+    environment: dev
     container:
       image: composer
     steps:
       - name: print name
+        env:
+          NAME: vardhan
         run: echo "$NAME"
-      # - name: Print dev Environment variable
-      #   run: echo "${{ vars.NAME }}"
+      - name: Print dev Environment variable
+        run: echo "${{ vars.NAME }}"
       # - name: print env
       #   run: |-
       #     if [ "${{ github.ref_name }}" == "main" ]; then
@@ -48,5 +50,5 @@ jobs:
       #     echo "${{ github.event.repository.name }}" >> output.txt
       #     echo "Using Service: $AWS_ECS_SERVICE_NAME"
       #     echo "Using Image Name: $IMAGE_NAME"
-          ls -l
-          cat service.txt
+          # ls -l
+          # cat service.txt
