@@ -17,8 +17,6 @@ jobs:
     steps:
       - name: print name
         run: echo "$NAME"
-        env:
-          NAME: "vardhan"
         
       - name: Print dev Environment variable
         run: echo "${{ vars.NAME }}"
