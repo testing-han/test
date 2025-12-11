@@ -1,0 +1,16 @@
+name: Tag test
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Tag
+        run: echo "${{ github.ref_name  }}"
