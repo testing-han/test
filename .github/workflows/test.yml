@@ -21,6 +21,8 @@ jobs:
         run: echo "$NAME"
       - name: Print dev Environment variable
         run: echo "${{ vars.NAME }}"
+      - name: Workspace
+        run: echo "$GITHUB_WORKSPACE"
       # - name: print env
       #   run: |-
       #     if [ "${{ github.ref_name }}" == "main" ]; then
