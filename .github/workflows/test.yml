@@ -23,6 +23,8 @@ jobs:
         run: echo "${{ vars.NAME }}"
       - name: Workspace
         run: echo "$GITHUB_WORKSPACE"
+      - name: Git Clone Other Repo
+        run: git clone https://github.com/testing-han/test-branches.git
       # - name: print env
       #   run: |-
       #     if [ "${{ github.ref_name }}" == "main" ]; then
