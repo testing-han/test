@@ -14,9 +14,9 @@ jobs:
       matrix:
         os: [ubuntu-latest,windows-latest,macos-latest]
     runs-on: ${{ matrix.os }}
-    environment: dev
-    container:
-      image: composer
+    # environment: dev
+    # container:
+    #   image: composer
     steps:
       - name: print name
         env:
