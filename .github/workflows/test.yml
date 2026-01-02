@@ -1,7 +1,6 @@
 name: test secrets
 
 on:
-  push:
   workflow_dispatch:
 
 env:
@@ -28,6 +27,13 @@ jobs:
         run: |
           echo "$GITHUB_WORKSPACE"
           echo "${{ runner.os }}"
+
+      - name: Check Variable export
+        run: |
+          export SITE_ENV="dev"
+          export ECS_CLUSTER_NAME="pr-blends01-$SITE_ENV"
+          export ECS_SERVICE_NAME="${{ env.SITE_NAME }}-$SITE_ENV-cron"
+          echo "$ECS_SERVICE_NAME"
       # - name: Git Clone Other Repo
       #   run: git clone https://github.com/testing-han/test-branches.git
       # - name: print env
