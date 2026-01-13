@@ -1,0 +1,13 @@
+name: Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  new:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Commit short
+        run: |
+          BITBUCKET_COMMIT_SHORT=$(echo ${{ github.sha }} | head -c7)
+          echo $BITBUCKET_COMMIT_SHORT
