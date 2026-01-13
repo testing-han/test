@@ -11,3 +11,4 @@ jobs:
         run: |
           BITBUCKET_COMMIT_SHORT=$(echo ${{ github.sha }} | head -c7)
           echo $BITBUCKET_COMMIT_SHORT
+          echo ${{ github.workspace }}
