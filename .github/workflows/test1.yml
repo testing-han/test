@@ -12,3 +12,12 @@ jobs:
           BITBUCKET_COMMIT_SHORT=$(echo ${{ github.sha }} | head -c7)
           echo $BITBUCKET_COMMIT_SHORT
           echo ${{ github.workspace }}
+
+  new1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out test-branches
+        uses: actions/checkout@v4
+        with:
+          repository: testing-han/test-branches
+  
