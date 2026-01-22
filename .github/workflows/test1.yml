@@ -10,8 +10,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
       - name: Commit short
-        run: |
-          ls
+        run: |-
+          ls -lrth
           BITBUCKET_COMMIT_SHORT=$(echo ${{ github.sha }} | head -c7)
           echo $BITBUCKET_COMMIT_SHORT
           echo ${{ github.workspace }}
