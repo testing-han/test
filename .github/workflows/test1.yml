@@ -11,10 +11,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Commit short
         run: |-
-          ls -lrth
+          ls -la
           BITBUCKET_COMMIT_SHORT=$(echo ${{ github.sha }} | head -c7)
           echo $BITBUCKET_COMMIT_SHORT
           echo ${{ github.workspace }}
+          chmod -x app.sh
           ${{ github.workspace }}/app.sh
 
   # new1:
