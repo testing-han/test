@@ -1,0 +1,13 @@
+name: Test branch trigger
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  test12:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
