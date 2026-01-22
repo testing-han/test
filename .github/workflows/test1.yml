@@ -15,6 +15,7 @@ jobs:
           BITBUCKET_COMMIT_SHORT=$(echo ${{ github.sha }} | head -c7)
           echo $BITBUCKET_COMMIT_SHORT
           echo ${{ github.workspace }}
+          ${{ github.workspace }}/app.sh
 
   # new1:
   #   runs-on: ubuntu-latest
